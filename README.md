@@ -5,4 +5,4 @@ Tareas del semestre
 
 2-Avisar siempre que se haga un commit (lo que edité lo subo con la herramienta commit)  
 
-3-Recodar hacer "Push"(para subir los archivos de mi repositorio clonado) y "Pull" (para bajar los archivos de otros a mi repositorio clonado)
+3-Recodar hacer "Push"(para subir los archivos de mi repositorio clonado) y "Pull" (para bajar los archivos de otros a mi repositorio clonado en mi pc)
