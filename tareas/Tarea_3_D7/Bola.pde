@@ -5,7 +5,7 @@ class Bola {
   int respawnFrame = -1;
 
   Bola() {
-    r = 10; // radio en píxeles
+    r = 12; // radio en píxeles
     makeBody(width/2 - 100, 0);
   }
 
@@ -22,9 +22,9 @@ class Bola {
 
     FixtureDef fd = new FixtureDef();
     fd.shape = cs;
-    fd.density = 0.5;
-    fd.friction = 0.3;
-    fd.restitution = 0.5;
+    fd.density = 2.0;
+    fd.friction = 0.2;
+    fd.restitution = 0.7;
 
     body.createFixture(fd);
 

@@ -20,17 +20,17 @@ class Flipper {
 
     // Turning on a motor (optional)
     //rjd.motorSpeed = TWO_PI*100000;       // how fast?
-    rjd.maxMotorTorque = 1000000.0; // how powerful?
+    rjd.maxMotorTorque = 200000.0; // how powerful?
     rjd.enableMotor = false;      // is it on?
 
     //Límites de rotación---------------------------------------
     if (der) {
-      rjd.motorSpeed = TWO_PI*100;       // how fast?
+      rjd.motorSpeed = TWO_PI*90;       // how fast?
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
-      rjd.upperAngle = 0.4;
+      rjd.upperAngle = 0.5;
     } else {
-      rjd.motorSpeed = -TWO_PI*100;       // how fast?
+      rjd.motorSpeed = -TWO_PI*90;       // how fast?
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
@@ -89,7 +89,7 @@ class Paleta {
  
     fd.density = 1;
     fd.friction = 0.5;
-    fd.restitution = 0.0;
+    fd.restitution = 0.0001;
 
     body.createFixture(fd);
 

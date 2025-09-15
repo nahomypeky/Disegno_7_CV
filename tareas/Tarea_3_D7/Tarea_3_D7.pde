@@ -26,7 +26,7 @@ void setup() {
 
   box2d = new PBox2D(this);
   box2d.createWorld();
-  box2d.setGravity (0, -220);
+  box2d.setGravity (0, -30);
   
   boundaries = new ArrayList<Boundary>();
   
