@@ -32,7 +32,7 @@ class ObstaculoCircular {
     Vec2 posScreen = box2d.getBodyPixelCoord(body);
     pushMatrix();
     translate(posScreen.x, posScreen.y);
-    fill(100, 200, 255);
+    fill(219, 192, 163);
     noStroke();
     ellipse(0, 0, r*2, r*2);
     popMatrix();

@@ -24,7 +24,7 @@ class Bola {
     fd.shape = cs;
     fd.density = 2.0;
     fd.friction = 0.1;
-    fd.restitution = 0.8;
+    fd.restitution = 0.9;
 
     body.createFixture(fd);
 
