@@ -6,7 +6,7 @@ class Bola {
 
   Bola() {
     r = 12; // radio en píxeles
-    makeBody(width/2 - 100, 0);
+    makeBody(width/2 - 200, 0);
   }
 
   void makeBody(float x, float y) {
@@ -23,8 +23,8 @@ class Bola {
     FixtureDef fd = new FixtureDef();
     fd.shape = cs;
     fd.density = 2.0;
-    fd.friction = 0.2;
-    fd.restitution = 0.7;
+    fd.friction = 0.1;
+    fd.restitution = 0.8;
 
     body.createFixture(fd);
 

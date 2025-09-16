@@ -19,6 +19,7 @@ String status;
 AudioPlayer hit;
 
 ArrayList<Boundary> boundaries;
+ArrayList<ObstaculoCircular> obstaculos = new ArrayList<ObstaculoCircular>();
 
 void setup() {
   size(560, 1000);
@@ -33,6 +34,18 @@ void setup() {
   miFlipperDerecho = new Flipper(width/2+170, height/2+350, 150, 15, true);
   miFlipperIzquierdo  = new Flipper(width/2-170, height/2+350, 150, 15, false);
   bola = new Bola();
+  
+  obstaculos.add(new ObstaculoCircular(width/2, 265, 15)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(width/2, 627, 15)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(450, 449, 15)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(100, 449, 15)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(175, 345, 25)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(380, 345, 25)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(175, 545, 25)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(380, 545, 25)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(width/2, 449, 25)); //x,y,radio
+
+  // ... agrega los que quieras
   
   minim = new Minim(this);
   hit = minim.loadFile(dataPath("flipper.mp3"));
@@ -50,6 +63,10 @@ void draw() {
   boundaries.add(new Boundary(width/2, 0, width, 10));        // techo
   boundaries.add(new Boundary(0, height/2, 10, height));      // izquierda
   boundaries.add(new Boundary(width, height/2, 10, height));  // derecha
+  
+  for (ObstaculoCircular o : obstaculos) {
+  o.display();
+  }
 }
 
 void keyPressed() {
