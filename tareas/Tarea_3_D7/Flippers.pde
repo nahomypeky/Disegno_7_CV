@@ -25,12 +25,12 @@ class Flipper {
 
     //Límites de rotación---------------------------------------
     if (der) {
-      rjd.motorSpeed = TWO_PI*90;       // how fast?
+      rjd.motorSpeed = TWO_PI*80;       // how fast?
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
     } else {
-      rjd.motorSpeed = -TWO_PI*90;       // how fast?
+      rjd.motorSpeed = -TWO_PI*80;       // how fast?
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
@@ -114,7 +114,7 @@ class Paleta {
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(-a);
-    fill(219, 192, 163);
+    fill(242, 141, 53);
     noStroke();
 
     //ellipse(0,0,20,20);// punto central
@@ -128,7 +128,7 @@ class Paleta {
       vertex(-w/2, h/2);
       endShape(CLOSE);
  
-      fill(219, 192, 163);
+      fill(242, 141, 53);
       ellipse(w/2, 0, h/2, h/2);
     } else {
       ellipse(w/2, 0, h, h); 
@@ -140,7 +140,7 @@ class Paleta {
       vertex(-w/2, h);
       endShape(CLOSE);
       // punto central
-      fill(219, 192, 163);
+      fill(242, 141, 53);
       ellipse(-w/2, 0, h/2, h/2);
     }
 

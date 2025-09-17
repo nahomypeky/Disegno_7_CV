@@ -6,18 +6,20 @@ import org.jbox2d.collision.shapes.Shape;
 import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
-
+import java.util.Iterator;
+import java.util.Map;
 import ddf.minim.*;
 Minim minim;
 
+// Variables globales
 PBox2D box2d;
-Flipper miFlipperDerecho, miFlipperIzquierdo;
 Bola bola;
+Iman iman;
+Flipper miFlipperDerecho, miFlipperIzquierdo;
 
 String status;
 
 AudioPlayer hit;
-
 ArrayList<Boundary> boundaries;
 ArrayList<ObstaculoCircular> obstaculos = new ArrayList<ObstaculoCircular>();
 
@@ -50,11 +52,15 @@ void setup() {
   
   minim = new Minim(this);
   hit = minim.loadFile(dataPath("flipper.mp3"));
+  
+  iman = new Iman(225, 0);  // Crea el imán en el centro superior
 }
 
 void draw() {
   background(228,215,207);
   box2d.step();
+  iman.aplicarFuerzaMagnetica(bola);  // Aplica las fuerzas magnéticas
+  iman.dibujar();                      // Dibuja el imán
   miFlipperDerecho.display();
   miFlipperIzquierdo.display();
   bola.display();
