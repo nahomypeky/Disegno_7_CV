@@ -22,8 +22,8 @@ class Iman {
   Iman(float x, float y) {
     this.x = x;
     this.y = y;
-    this.radio = 80;
-    this.radioAtraccion = 100;
+    this.radio = 50;
+    this.radioAtraccion = 80;
     this.tiempoRetencion = 2000; // 2 segundos
     this.cooldownTiempo = 1000;  // 1s cooldown
     this.velocidadLiberacion = 25; // magnitud del impulso al liberar

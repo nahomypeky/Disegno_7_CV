@@ -16,6 +16,7 @@ PBox2D box2d;
 Bola bola;
 Iman iman;
 Flipper miFlipperDerecho, miFlipperIzquierdo;
+Boundary rect1, rect2;
 
 String status;
 
@@ -54,6 +55,9 @@ void setup() {
   hit = minim.loadFile(dataPath("flipper.mp3"));
   
   iman = new Iman(225, 0);  // Crea el imán en el centro superior
+  
+  rect1 = new Boundary(68, 576, 100, 10, 20, -150);
+  rect2 = new Boundary(389, 576, 100, 10, 20, 150);
 }
 
 void draw() {
@@ -63,6 +67,8 @@ void draw() {
   iman.dibujar();                      // Dibuja el imán
   miFlipperDerecho.display();
   miFlipperIzquierdo.display();
+  rect1.display();
+  rect2.display();
   bola.display();
   
   // ❌ quitamos el piso

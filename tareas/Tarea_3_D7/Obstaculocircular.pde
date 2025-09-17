@@ -22,8 +22,8 @@ class ObstaculoCircular {
     FixtureDef fd = new FixtureDef();
     fd.shape = cs;
     fd.density = 1.0;
-    fd.friction = 0.3;
-    fd.restitution = 0.10; // rebota bien
+    fd.friction = 0.1;
+    fd.restitution = 0.40; // rebota bien
 
     body.createFixture(fd);
   }

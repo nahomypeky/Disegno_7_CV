@@ -51,7 +51,7 @@ class Bola {
 
     pushMatrix();
     translate(pos.x, pos.y);
-    fill(255, 0, 0); // rojo
+    fill(242, 61, 61); // rojo
     noStroke();
     ellipse(0, 0, r*2, r*2);
     popMatrix();

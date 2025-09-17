@@ -25,12 +25,12 @@ class Flipper {
 
     //Límites de rotación---------------------------------------
     if (der) {
-      rjd.motorSpeed = TWO_PI*80;       // how fast?
+      rjd.motorSpeed = TWO_PI*10;       // how fast?
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
     } else {
-      rjd.motorSpeed = -TWO_PI*80;       // how fast?
+      rjd.motorSpeed = -TWO_PI*10;       // how fast?
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
