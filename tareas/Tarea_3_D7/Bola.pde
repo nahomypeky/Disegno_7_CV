@@ -35,7 +35,9 @@ class Bola {
   void display() {
     if (isDead) {
       if (frameCount >= respawnFrame) {
-        makeBody(width/2 - 100, 0); // reaparece después del delay
+        // generar x aleatoria pero fuera del iman
+        float xSpawn = generarPosicionAleatoria();
+        makeBody(xSpawn, 0); // reaparece desde arriba
       }
       return;
     }
@@ -56,4 +58,12 @@ class Bola {
     ellipse(0, 0, r*2, r*2);
     popMatrix();
   }
+  
+  float generarPosicionAleatoria(){
+    float xSpawn;
+    do {
+      xSpawn = random(r, width - r); //dentro de la pantalla
+    } while (dist(xSpawn, 0, iman.getX(), iman.getY()) < iman.getRadioAtraccion());
+    return xSpawn;
+    }
 }
