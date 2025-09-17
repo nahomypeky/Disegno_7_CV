@@ -22,7 +22,7 @@ ArrayList<Boundary> boundaries;
 ArrayList<ObstaculoCircular> obstaculos = new ArrayList<ObstaculoCircular>();
 
 void setup() {
-  size(560, 1000);
+  size(450,760);
   smooth();
 
   box2d = new PBox2D(this);
@@ -31,19 +31,20 @@ void setup() {
   
   boundaries = new ArrayList<Boundary>();
   
-  miFlipperDerecho = new Flipper(width/2+170, height/2+350, 150, 15, true);
-  miFlipperIzquierdo  = new Flipper(width/2-170, height/2+350, 150, 15, false);
+  miFlipperDerecho = new Flipper(width/2+100, height/2+240, 90, 12, true);
+  miFlipperIzquierdo  = new Flipper(width/2-100, height/2+240, 90, 12, false);
+  
   bola = new Bola();
   
-  obstaculos.add(new ObstaculoCircular(width/2, 265, 15)); //x,y,radio
-  obstaculos.add(new ObstaculoCircular(width/2, 627, 15)); //x,y,radio
-  obstaculos.add(new ObstaculoCircular(450, 449, 15)); //x,y,radio
-  obstaculos.add(new ObstaculoCircular(100, 449, 15)); //x,y,radio
-  obstaculos.add(new ObstaculoCircular(175, 345, 25)); //x,y,radio
-  obstaculos.add(new ObstaculoCircular(380, 345, 25)); //x,y,radio
-  obstaculos.add(new ObstaculoCircular(175, 545, 25)); //x,y,radio
-  obstaculos.add(new ObstaculoCircular(380, 545, 25)); //x,y,radio
-  obstaculos.add(new ObstaculoCircular(width/2, 449, 25)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(width/2, 188.6, 12)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(width/2, 498.6, 12)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(380, 343.6, 12)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(70, 343.6, 12)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(312, 257, 19)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(312, 430, 19)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(138, 258, 19)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(138, 430, 19)); //x,y,radio
+  obstaculos.add(new ObstaculoCircular(width/2, 344, 19)); //x,y,radio
 
   // ... agrega los que quieras
   
