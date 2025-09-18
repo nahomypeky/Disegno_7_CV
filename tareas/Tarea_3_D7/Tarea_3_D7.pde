@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.Map;
 import ddf.minim.*;
 Minim minim;
+AudioPlayer sonidoAbsorcion;
 
 // Variables globales
 PBox2D box2d;
@@ -17,6 +18,8 @@ Bola bola;
 Iman iman;
 Flipper miFlipperDerecho, miFlipperIzquierdo;
 Boundary rect1, rect2;
+Teletransportador espiral;
+
 
 String status;
 
@@ -38,6 +41,7 @@ void setup() {
   miFlipperIzquierdo  = new Flipper(width/2-100, height/2+240, 90, 12, false);
   
   bola = new Bola();
+
   
   obstaculos.add(new ObstaculoCircular(width/2, 188.6, 12)); //x,y,radio
   obstaculos.add(new ObstaculoCircular(width/2, 498.6, 12)); //x,y,radio
@@ -53,11 +57,14 @@ void setup() {
   
   minim = new Minim(this);
   hit = minim.loadFile(dataPath("flipper.mp3"));
+  sonidoAbsorcion = minim.loadFile("abs.mp3");
   
   iman = new Iman(225, 0);  // Crea el imán en el centro superior
   
   rect1 = new Boundary(68, 576, 100, 10, 20, -150);
   rect2 = new Boundary(389, 576, 100, 10, 20, 150);
+  
+  espiral = new Teletransportador(30, "espiral.png"); // 30 = radio
 }
 
 void draw() {
@@ -70,6 +77,13 @@ void draw() {
   rect1.display();
   rect2.display();
   bola.display();
+  
+  espiral.display();
+
+if (espiral.colisionConBola(bola)) {
+  espiral.actualizar(bola);
+}
+
   
   // ❌ quitamos el piso
   // boundaries.add(new Boundary(width/2, height, width, 10));   // piso
