@@ -1,3 +1,18 @@
+//Pinball.
+
+//integrantes
+//Mónica Solano  (2021049821)
+//Nahomy Duarte (2019205921)
+//Sofia Lasso (2022438566)
+//Emilio Flores (2021449977)
+
+//19/09/2025
+
+//Diseño 7 CV Gr2 
+
+//Profesor Ph.D Franklin Hernández-Castro
+
+
 import pbox2d.*;
 import org.jbox2d.common.*;
 import org.jbox2d.dynamics.joints.*;
