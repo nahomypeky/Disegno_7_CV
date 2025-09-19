@@ -127,7 +127,7 @@ class Iman {
       if (since < cooldownTiempo) fill(50, 79, 166, 0);
       else fill(50, 79, 166, 0);
     }
-    arc(x, y, radioAtraccion*2, radioAtraccion*2, 0, PI);
+    arc(x, y, radioAtraccion*3, radioAtraccion*3, 0, PI);
 
 
     // Semicírculo: curva hacia abajo, parte recta arriba
