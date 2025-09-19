@@ -65,8 +65,8 @@ void setup() {
   
   iman = new Iman(225, 0);  // Crea el imán en el centro superior
   
-  rect1 = new Boundary(48, 576, 155, 10, 20, -150);
-  rect2 = new Boundary(399, 576, 150, 10, 20, 150);
+  rect1 = new Boundary(48, 570, 155, 10, 20, -150);
+  rect2 = new Boundary(399, 570, 150, 10, 20, 150);
   
   espiral = new Teletransportador(30, "espiral.png"); // 30 = radio
 }

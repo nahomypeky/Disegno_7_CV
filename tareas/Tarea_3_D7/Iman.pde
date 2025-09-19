@@ -23,7 +23,7 @@ class Iman {
     this.x = x;
     this.y = y;
     this.radio = 40;
-    this.radioAtraccion = 80;
+    this.radioAtraccion = 90;
     this.tiempoRetencion = 2000; // 2 segundos
     this.cooldownTiempo = 1000;  // 1s cooldown
     this.velocidadLiberacion = 25; // magnitud del impulso al liberar
@@ -133,12 +133,6 @@ class Iman {
     // Semicírculo: curva hacia abajo, parte recta arriba
     fill(50, 79, 166);
     arc(x, y, radio * 2, radio * 2, 0, PI); // 0..PI dibuja semicirc. con curva abajo
-
-    // Brillo decorativo
-    if (bolaEstaAtraida) fill(50, 79, 166, 200);
-    else fill(0, 79, 166, 150);
-    noStroke();
-    arc(x, y - 10, radio * 1.2, radio * 1.2, 0.3, PI - 0.3);
     
     magnetic.play();
     //magnetic.loop();
