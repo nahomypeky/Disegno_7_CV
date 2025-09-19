@@ -28,7 +28,7 @@ class Bola {
 
     body.createFixture(fd);
 
-    // 👇 Esto permite identificar este body como "Bola" en las colisiones
+    // Esto permite identificar este body como "Bola" en las colisiones
     body.setUserData(this);
 
     isDead = false;

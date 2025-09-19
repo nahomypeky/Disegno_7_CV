@@ -45,7 +45,7 @@ String status;
 
 ArrayList<Boundary> boundaries;
 
-// ▼▼ NUEVO: manejamos configuraciones de obstáculos
+// Manejamos configuraciones de obstáculos
 ArrayList<ObstaculoCircular> obstaculos = new ArrayList<ObstaculoCircular>();
 int configActual = 1;                 // 1 = config inicial
 boolean imanAtrayendoPrev = false;    // para detectar transición (pegado → liberado)
@@ -67,7 +67,7 @@ void setup() {
   
   bola = new Bola();
 
-  // ▼▼ NUEVO: iniciamos con la configuración 1 (idéntica a tu lista original)
+  // Iniciamos con la configuración 1 (idéntica a tu lista original)
   obstaculos = configObstaculos1();
   
   minim = new Minim(this);

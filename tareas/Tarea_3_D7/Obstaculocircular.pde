@@ -24,7 +24,7 @@ class ObstaculoCircular {
 
     body.createFixture(fd);
 
-    // 👇 Esto permite identificar este body como "ObstaculoCircular"
+    // Esto permite identificar este body como "ObstaculoCircular"
     body.setUserData(this);
   }
 

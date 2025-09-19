@@ -19,19 +19,19 @@ class Flipper {
     else offset = box2d.vectorPixelsToWorld(new Vec2(-ancho/2, 0));
     rjd.localAnchorA = offset;
 
-    // Turning on a motor (optional)
-    rjd.motorSpeed = 0;       // how fast?
-    rjd.maxMotorTorque = 200000.0; // how powerful?
-    rjd.enableMotor = true;      // is it on?
+    // Motor
+    rjd.motorSpeed = 0;       // Rapidez
+    rjd.maxMotorTorque = 200000.0; // Fuerza
+    rjd.enableMotor = true;      // Encendido/apagado
 
     //Límites de rotación---------------------------------------
     if (der) {
-      rjd.motorSpeed = -TWO_PI*30;       // how fast?
+      rjd.motorSpeed = -TWO_PI*30;       // rapidez
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
     } else {
-      rjd.motorSpeed = TWO_PI*30;       // how fast?
+      rjd.motorSpeed = TWO_PI*30;       // rapidez
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
@@ -40,9 +40,9 @@ class Flipper {
 
     // Create the joint
     joint = (RevoluteJoint) box2d.world.createJoint(rjd);
-  } // end of constructor
+  } // fin del constructor
 
-  // Turn the motor on or off
+  // Endender y apagar motor
   void toggleMotor() {
     joint.enableMotor(!joint.isMotorEnabled());
   }
@@ -106,11 +106,11 @@ class Paleta {
 
     body.createFixture(fd);
 
-    // Give it some initial random velocity
+    // velocidad random
 
   }
 
-  // This function removes the particle from the box2d world
+  // esta función remueve la particula
   void killBody() {
     box2d.destroyBody(body);
   }
