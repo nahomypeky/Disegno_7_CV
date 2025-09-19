@@ -6,9 +6,10 @@ import org.jbox2d.collision.shapes.Shape;
 import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
-import java.util.Iterator;
-import java.util.Map;
+//import java.util.Iterator;
+//import java.util.Map;
 import ddf.minim.*;
+
 Minim minim;
 AudioPlayer sonidoAbsorcion;
 AudioPlayer magnetic;
