@@ -24,9 +24,12 @@ class Bola {
     fd.shape = cs;
     fd.density = 2.0;
     fd.friction = 0.1;
-    fd.restitution = 0.9;
+    fd.restitution = 0.2; 
 
     body.createFixture(fd);
+
+    // 👇 Esto permite identificar este body como "Bola" en las colisiones
+    body.setUserData(this);
 
     isDead = false;
     respawnFrame = -1;
@@ -35,9 +38,8 @@ class Bola {
   void display() {
     if (isDead) {
       if (frameCount >= respawnFrame) {
-        // generar x aleatoria pero fuera del iman
         float xSpawn = generarPosicionAleatoria();
-        makeBody(xSpawn, 0); // reaparece desde arriba
+        makeBody(xSpawn, 0);
       }
       return;
     }
@@ -62,8 +64,8 @@ class Bola {
   float generarPosicionAleatoria(){
     float xSpawn;
     do {
-      xSpawn = random(r, width - r); //dentro de la pantalla
+      xSpawn = random(r, width - r);
     } while (dist(xSpawn, 0, iman.getX(), iman.getY()) < iman.getRadioAtraccion());
     return xSpawn;
-    }
+  }
 }

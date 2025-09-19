@@ -19,7 +19,7 @@ class Teletransportador {
   Teletransportador(float radio, String pathImg) {
     this.r = radio;
     img = loadImage(pathImg);
-    if (img == null) println("Warning: imagen '" + pathImg + "' no encontrada en /data");
+    
 
     // Genera una posicion libre automàticamente
     Vec2 pos = generarPosicionLibre(r);
@@ -124,6 +124,7 @@ class Teletransportador {
         absorbiendo = false;
         enCooldown = true;
         tiempoFinCooldown = millis() + cooldownAfterExpulsion;
+        cambiarAProximaConfig();
       }
     }
   } 

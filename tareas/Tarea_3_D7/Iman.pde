@@ -22,7 +22,7 @@ class Iman {
   Iman(float x, float y) {
     this.x = x;
     this.y = y;
-    this.radio = 50;
+    this.radio = 40;
     this.radioAtraccion = 80;
     this.tiempoRetencion = 2000; // 2 segundos
     this.cooldownTiempo = 1000;  // 1s cooldown
@@ -56,7 +56,8 @@ class Iman {
     if (dentro && !bolaEstaAtraida && cooldownListo) {
       bolaEstaAtraida = true;
       tiempoInicioAtraccion = millis();
-      //println("Bola capturada por el imán");
+      sonidoIman.trigger();
+      
     }
 
     if (bolaEstaAtraida) {
@@ -65,6 +66,8 @@ class Iman {
         // liberar
         bolaEstaAtraida = false;
         ultimaLiberacion = millis();
+        suelta.trigger();
+        
         //println("Bola liberada del imán");
         // Impulso hacia abajo (mundo físico)
         Vec2 impulso = new Vec2(0, velocidadLiberacion);
@@ -115,13 +118,14 @@ class Iman {
   void dibujar() {
     pushMatrix();
     noStroke();
+    dibujarEfectoCampo();
 
     // Área de atracción (visual)
-    if (bolaEstaAtraida) fill(50, 79, 166, 100);
+    if (bolaEstaAtraida) fill(50, 79, 166, 1);
     else {
       long since = millis() - ultimaLiberacion;
-      if (since < cooldownTiempo) fill(50, 79, 166, 80);
-      else fill(50, 79, 166, 80);
+      if (since < cooldownTiempo) fill(50, 79, 166, 0);
+      else fill(50, 79, 166, 0);
     }
     arc(x, y, radioAtraccion*2, radioAtraccion*2, 0, PI);
 
@@ -132,12 +136,40 @@ class Iman {
 
     // Brillo decorativo
     if (bolaEstaAtraida) fill(50, 79, 166, 200);
-    else fill(50, 79, 166, 150);
+    else fill(0, 79, 166, 150);
     noStroke();
     arc(x, y - 10, radio * 1.2, radio * 1.2, 0.3, PI - 0.3);
+    
+    magnetic.play();
+    //magnetic.loop();
+   // magnetic.rewind();
 
     popMatrix();
   }
+void dibujarEfectoCampo() {
+  noStroke();
+  int numOndas = 5;                    // total de ondas visibles
+  float maxRadio = 100; 
+  float ciclo = 6000;                  // duración de un ciclo en ms
+
+  // progreso entre 0..1
+  float fase = (millis() % ciclo) / ciclo;
+
+  for (int i = 0; i < numOndas; i++) {
+    // cada onda está desfasada respecto a la anterior
+    float offset = (float)i / numOndas;
+
+    // posición animada (0..1 → radio)
+    float f = (fase + offset) % 1.0;
+    float r = map(f, 0, 1, radio, maxRadio);
+
+    // alpha que va de 150 (onda nueva) a 0 (onda que desaparece)
+    int alpha = (int)map(f, 0, 1, 150, 0);
+
+    fill(50, 79, 166, alpha);
+    ellipse(x, y, r*2, r*2);
+  }
+}
 
   // Getters (opcionales)
   float getX() { return x; }

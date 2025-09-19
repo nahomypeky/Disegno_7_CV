@@ -3,8 +3,9 @@ class Flipper {
   Paleta box1;
   Box box2;
   RevoluteJointDef rjd;
-
+ boolean der;
   Flipper(float x, float y, int ancho, int largo, boolean der) {
+    this.der = der;
 
     box1 = new Paleta(x, y, ancho, largo, false, der);
     box2 = new Box(x, y, 5, 5, true); // el eje quieto
@@ -19,18 +20,18 @@ class Flipper {
     rjd.localAnchorA = offset;
 
     // Turning on a motor (optional)
-    //rjd.motorSpeed = TWO_PI*100000;       // how fast?
+    rjd.motorSpeed = 0;       // how fast?
     rjd.maxMotorTorque = 200000.0; // how powerful?
-    rjd.enableMotor = false;      // is it on?
+    rjd.enableMotor = true;      // is it on?
 
     //Límites de rotación---------------------------------------
     if (der) {
-      rjd.motorSpeed = TWO_PI*10;       // how fast?
+      rjd.motorSpeed = -TWO_PI*30;       // how fast?
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
     } else {
-      rjd.motorSpeed = -TWO_PI*10;       // how fast?
+      rjd.motorSpeed = TWO_PI*30;       // how fast?
       rjd.enableLimit = true;    
       rjd.lowerAngle = -0.5; 
       rjd.upperAngle = 0.5;
@@ -45,10 +46,21 @@ class Flipper {
   void toggleMotor() {
     joint.enableMotor(!joint.isMotorEnabled());
   }
-
-  boolean motorOn() {
-    return joint.isMotorEnabled();
+  void activar() {
+    if (der) joint.setMotorSpeed(200000); // derecha sube
+    else joint.setMotorSpeed(-200000);      // izquierda sube
   }
+
+  // Baja el flipper
+  void soltar() {
+    if (der) joint.setMotorSpeed(-200000);  // derecha baja
+    else joint.setMotorSpeed(200000);     // izquierda baja
+  }
+
+
+  //boolean motorOn() {
+  //  return joint.isMotorEnabled();
+  //}
 
   void display() {
     box1.display();
@@ -71,6 +83,7 @@ class Paleta {
 
     
     BodyDef bd = new BodyDef();
+    
     bd.position.set(box2d.coordPixelsToWorld(new Vec2(x, y)));
     if (lock) bd.type = BodyType.STATIC;
     else bd.type = BodyType.DYNAMIC;
@@ -79,8 +92,8 @@ class Paleta {
 
     
     PolygonShape sd = new PolygonShape();
-    float box2dW = box2d.scalarPixelsToWorld(w/2);
-    float box2dH = box2d.scalarPixelsToWorld(h/2);
+    float box2dW = box2d.scalarPixelsToWorld(50); //estos valores son un buen punto donde
+    float box2dH = box2d.scalarPixelsToWorld(10);
     sd.setAsBox(box2dW, box2dH);
 
     
@@ -94,8 +107,7 @@ class Paleta {
     body.createFixture(fd);
 
     // Give it some initial random velocity
-    body.setLinearVelocity(new Vec2(random(-5, 5), random(2, 5)));
-    body.setAngularVelocity(random(-5, 5));
+
   }
 
   // This function removes the particle from the box2d world
