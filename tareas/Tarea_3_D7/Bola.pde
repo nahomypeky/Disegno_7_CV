@@ -23,7 +23,7 @@ class Bola {
     FixtureDef fd = new FixtureDef();
     fd.shape = cs;
     fd.density = 2.0;
-    fd.friction = 0.1;
+    fd.friction = 0.2;
     fd.restitution = 0.2; 
 
     body.createFixture(fd);
